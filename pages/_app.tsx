@@ -1,23 +1,28 @@
-import type { AppProps } from 'next/app'
-import { Analytics } from '@vercel/analytics/react'
-import type { LayoutProps } from '@vercel/examples-ui/layout'
+import type { AppProps } from "next/app"
+import { Analytics } from "@vercel/analytics/react"
 
-import { getLayout } from '@vercel/examples-ui'
-
-import '@vercel/examples-ui/globals.css'
+import "@vercel/examples-ui/globals.css"
+import { SpeechProvider } from "@speechly/react-client"
+import { QueryClient, QueryClientProvider } from "react-query"
+import Layout from "../components/layout"
 
 function App({ Component, pageProps }: AppProps) {
-  const Layout = getLayout<LayoutProps>(Component)
-
+  const queryClient = new QueryClient()
   return (
-    <Layout
-      title="ai-chatgpt"
-      path="solutions/ai-chatgpt"
-      description="ai-chatgpt"
+    <SpeechProvider
+      appId="6fa937e3-7829-45a8-a4bc-eb911692a739"
+      debug
+      logSegments
     >
-      <Component {...pageProps} />
-      <Analytics />
-    </Layout>
+      <QueryClientProvider client={queryClient}>
+        <div>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+          <Analytics />
+        </div>
+      </QueryClientProvider>
+    </SpeechProvider>
   )
 }
 

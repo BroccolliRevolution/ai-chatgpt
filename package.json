@@ -7,9 +7,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "vercel-build": "next build"
   },
   "dependencies": {
+    "@chengsokdara/use-whisper": "^0.2.0",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@ffmpeg/core": "^0.11.0",
+    "@ffmpeg/ffmpeg": "^0.11.6",
+    "@mui/material": "^5.11.13",
+    "@speechly/react-client": "^2.2.3",
+    "@tanstack/react-query-devtools": "^4.28.0",
     "@vercel/analytics": "^0.1.11",
     "@vercel/examples-ui": "^1.0.5",
     "eventsource-parser": "^0.1.0",
@@ -17,6 +26,7 @@
     "react": "latest",
     "react-cookie": "^4.1.1",
     "react-dom": "latest",
+    "react-query": "^3.39.3",
     "react-wrap-balancer": "^0.1.5"
   },
   "devDependencies": {
